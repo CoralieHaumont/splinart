@@ -18,7 +18,7 @@ install:
   # Useful for debugging any issues with conda
   - conda info -a
 
-  - conda create -q -n splinart-env python=$TRAVIS_PYTHON_VERSION
+  - conda create -q -n splinart-env python=$PYVER
   - source activate splinart-env
   - pip install -r requirements_test.txt
   - python setup.py install
