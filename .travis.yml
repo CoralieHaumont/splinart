@@ -1,9 +1,11 @@
-language: python
 
 env:
   - PYVER="2.7"
   - PYVER="3.5"
   - PYVER="3.6"
+os:
+  - linux
+  - osx
 
 before_install:
   - |
