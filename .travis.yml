@@ -1,5 +1,12 @@
 language: python
 
+env:
+  - PYVER="2.7"
+  - PYVER="3.4"
+  - PYVER="3.5"
+  - PYVER="3.6"
+
+
 install:
   - sudo apt-get update
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
@@ -18,4 +25,8 @@ install:
 
 script:
   # Your test script goes here
-  - pytest tests
+  - pytest --pylint --pylint-rcfile=.pyrcfile --pylint-error-types=EF splinart
+  - pytest --cov=splinart tests
+
+after_success:
+  - codecov -e $PYVER
